@@ -18,18 +18,20 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnCheckNum.setOnClickListener {
 
-            for (num in mList) {
-                Log.d("기존 정열", num.toString())
-
-                for (i in 0 until mList.size) {
+            for (j in 0 until mList.size) {
+                for (i in 0 until mList.size - 1) {
                     var tempNum = mList[i]
-                    if (mList[i] >= mList[i+1]) {
-                        mList[i] = mList[i+1]
-                        mList[i+1]= tempNum
-                        }
+                    if (mList[i] > mList[i + 1]) {
+                        mList[i] = mList[i + 1]
+                        mList[i + 1] = tempNum
                     }
-                Log.d("바뀐정열", num.toString())
+                }
 
+            }
+
+
+            for (num in mList) {
+                Log.d("바뀐정열", num.toString())
             }
 
         }
